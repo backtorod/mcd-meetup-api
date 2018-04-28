@@ -1,0 +1,9 @@
+name: mcd-meetup-api
+home: https://gitlab.com/rod.guareschi/mcd-meetup-api
+version: 1.0.0
+description: Demo for the Meetup Talk
+sources:
+  - https://gitlab.com/rod.guareschi/mcd-meetup-api
+maintainers:
+  - name: Rod Guareschi
+    email: rod.guareschi@lookup8.com

@@ -1,0 +1,22 @@
+{
+    "application": {
+        "name": "mcd-meetup-api",
+        "imageName": "mcd-meetup-api",
+        "imageRepository": "lookup8",
+        "replicas": 3,
+        "cpu": "0.1",
+        "memory": "256Mi",
+        "serviceType": "LoadBalancer",
+        "servicePort": "8000",
+        "containerPort": "8000"
+    },
+    "helm": {
+        "chartDir": "${WORKSPACE}/charts/mcd-meetup-api"
+    },
+    "pipeline": { 
+        "sanityChecks": false,
+        "pullRequests": {
+            "dryRun": true
+        }
+    }
+}

@@ -1,0 +1,20 @@
+serviceType: ClusterIP
+servicePort: 8000
+containerPort: 8000
+component: "mcd-meetup-api"
+replicas: 3
+image: "mcd-meetup-api"
+imageTag: "latest"
+imagePullPolicy: "Always"
+cpu: "10m"
+memory: "128Mi"
+## PodDisruptionBudget
+environment:
+  databaseHost: "pxc-cluster.develop"
+  databasePort: "3306"
+  databaseUser: "develop"
+  databasePass: "develop"
+  databaseName: "develop"
+pdb:
+  enabled: false
+  minAvailable: 2

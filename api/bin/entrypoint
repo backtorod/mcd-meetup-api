@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+set -eox pipefail
+
+if [[ -z ${DATABASE_HOST} || -z ${DATABASE_PORT} || -z ${DATABASE_USER} || -z ${DATABASE_PASS} || -z ${DATABASE_NAME} ]]; then
+  echo '# Container Requirements Check Failed!'
+  exit 1
+else
+	export DATABASE_HOST=${DATABASE_HOST:=mysql}
+	export DATABASE_PORT=${DATABASE_PORT:=3306}
+	export DATABASE_USER=${DATABASE_USER:=user}
+	export DATABASE_PASS=${DATABASE_PASS:=user}
+	export DATABASE_NAME=${DATABASE_NAME:=user}
+fi
+
+echo "Waiting for Database"
+until mysql -h "${DATABASE_HOST}" -u"${DATABASE_USER}" -p"${DATABASE_PASS}" -e"SELECT 1" &> /dev/null
+do
+  printf "."
+  sleep 1
+done
+
+echo -e "\n# Database is Ready!"
+
+echo "# Executing Database Migration ..."
+python manage.py migrate
+
+exec python manage.py runserver 0.0.0.0:8000

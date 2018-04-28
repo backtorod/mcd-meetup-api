@@ -1,0 +1,4 @@
+FROM python:3.6.5-jessie
+
+RUN apt update \
+  && apt install -y mysql-client

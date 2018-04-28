@@ -22,7 +22,7 @@ Some pipeline parameters can be defined in the *Jenkinsfile.json* file
 
 ## Pipeline Library
 
-A separate repository holds the [Libraries](https://gitlab.com/rod.guareschi/mcd-meetup-api-library.git) required during pipeline execution.
+A separate repository holds the [Libraries](https://github.com/rguareschi/mcd-meetup-api-library.git) required during pipeline execution.
 
 ## Pipeline Secrests
 

@@ -1,6 +1,6 @@
 #!/usr/bin/groovy
 
-@Library('gitlab.com/rod.guareschi/mcd-meetup-api-library@master')
+@Library('github.com/rguareschi/mcd-meetup-api-library@master')
 
 def chartDir = ''
 def commitHash = ''
